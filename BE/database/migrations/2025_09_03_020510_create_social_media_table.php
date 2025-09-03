@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('satuan', function (Blueprint $table) {
-            $table->increments('id_satuan');
-            $table->string('nama', 25)->nullable();
+        Schema::create('social_media', function (Blueprint $table) {
+            $table->increments('id_social_media');
+            $table->string('name', 50)->nullable();
+            $table->string('icon', 50)->nullable();
+            $table->text('link')->nullable();
 
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();    
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('satuan');
+        Schema::dropIfExists('social_media');
     }
 };

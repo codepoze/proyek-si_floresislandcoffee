@@ -2,18 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class PostTag extends Model
 {
-    use HasFactory;
-    protected $table = 'sliders';
-    protected $primaryKey = 'id_slider';
+    protected $table = 'post_tags';
+    protected $primaryKey = 'id_post_tag';
     protected $fillable = [
-        'title',
-        'description',
-        'image',
+        'id_post',
+        'id_tag'
     ];
 
     // booted

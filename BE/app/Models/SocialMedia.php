@@ -2,19 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Distributor extends Model
+class SocialMedia extends Model
 {
-    use HasFactory;
-    // table
-    protected $table = 'distributor';
-    // primary key
-    protected $primaryKey = 'id_distributor';
-    // fields
+    protected $table = 'social_media';
+    protected $primaryKey = 'id_social_media';
     protected $fillable = [
-        'nama',
+        'name',
+        'icon',
+        'link'
     ];
 
     // booted

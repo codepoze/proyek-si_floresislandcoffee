@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kendaraan', function (Blueprint $table) {
-            $table->increments('id_kendaraan');
-            $table->string('no_pol', 25)->unique()->nullable();
-            $table->enum('jenis', ['mobil', 'motor'])->nullable();
+        Schema::create('contacts', function (Blueprint $table) {
+            $table->increments('id_contact');
+            $table->string('name', 100)->nullable();
+            $table->string('email', 100)->nullable();
+            $table->string('subject', 100)->nullable();
+            $table->text('message')->nullable();
 
-            $table->integer('created_by')->nullable();
-            $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kendaraan');
+        Schema::dropIfExists('contacts');
     }
 };

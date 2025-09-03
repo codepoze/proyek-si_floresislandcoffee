@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('metode', function (Blueprint $table) {
-            $table->increments('id_metode');
-            $table->string('nama', 25)->nullable();
-            $table->string('inisial', 2)->nullable();
-            $table->enum('aktif', ['y', 'n'])->default('y');
+        Schema::create('sliders', function (Blueprint $table) {
+            $table->increments('id_slider');
+            $table->string('title', 50)->nullable();
+            $table->text('description')->nullable();
+            $table->binary('image')->nullable();
 
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('metode');
+        Schema::dropIfExists('sliders');
     }
 };

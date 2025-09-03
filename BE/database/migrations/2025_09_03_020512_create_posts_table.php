@@ -11,14 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('distributor', function (Blueprint $table) {
-            $table->increments('id_distributor');
-            $table->text('nama')->nullable();
+        Schema::create('posts', function (Blueprint $table) {
+            $table->increments('id_post');
+            $table->integer('id_category')->unsigned()->nullable();
+            $table->string('title', 100)->nullable();
+            $table->text('content')->nullable();
+            $table->binary('image')->nullable();
+            $table->enum('status', ['draft', 'publish'])->default('publish');
 
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+
+            $table->foreign('id_category')->references('id_category')->on('categories')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 
@@ -27,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('distributor');
+        Schema::dropIfExists('posts');
     }
 };

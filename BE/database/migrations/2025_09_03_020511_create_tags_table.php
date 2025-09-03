@@ -11,19 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('t_pendaftaran_produk', function (Blueprint $table) {
-            $table->integer('id_t_pendaftaran_produk')->autoIncrement();
-            $table->integer('id_produk')->unsigned()->nullable();
-            $table->decimal('qty', 8, 2)->nullable();
-            $table->string('palet', 25)->nullable();
-            $table->string('remark', 25)->nullable();
+        Schema::create('tags', function (Blueprint $table) {
+            $table->increments('id_tag');
+            $table->string('name', 100)->nullable();
+            $table->string('slug', 100)->nullable();
 
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-
-            $table->foreign('id_produk')->references('id_produk')->on('produk')->onDelete('restrict')->onUpdate('cascade');
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('t_pendaftaran_produk');
+        Schema::dropIfExists('tags');
     }
 };

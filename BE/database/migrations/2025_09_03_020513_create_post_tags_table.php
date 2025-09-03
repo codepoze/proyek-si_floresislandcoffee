@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('slider', function (Blueprint $table) {
-            $table->increments('id_slider');
-            $table->string('judul', 50)->nullable();
-            $table->text('deskripsi')->nullable();
-            $table->binary('gambar')->nullable();
+        Schema::create('post_tags', function (Blueprint $table) {
+            $table->increments('id_post_tag');
+            $table->integer('id_post')->unsigned()->nullable();
+            $table->integer('id_tag')->unsigned()->nullable();
 
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+
+            $table->foreign('id_post')->references('id_post')->on('posts')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('id_tag')->references('id_tag')->on('tags')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sliders');
+        Schema::dropIfExists('post_tags');
     }
 };

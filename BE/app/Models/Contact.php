@@ -2,21 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Metode extends Model
+class Contact extends Model
 {
-    use HasFactory;
-    // table
-    protected $table = 'metode';
-    // primary key
-    protected $primaryKey = 'id_metode';
-    // fields
+    protected $table = 'contacts';
+    protected $primaryKey = 'id_contact';
     protected $fillable = [
-        'nama',
-        'inisial',
-        'aktif',
+        'name',
+        'email',
+        'subject',
+        'message'
     ];
 
     // booted

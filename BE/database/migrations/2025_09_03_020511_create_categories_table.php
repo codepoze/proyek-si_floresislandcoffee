@@ -11,19 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produk', function (Blueprint $table) {
-            $table->increments('id_produk');
-            $table->integer('id_satuan')->unsigned()->nullable();
-            $table->string('nama', 25)->nullable();
-            $table->string('tipe', 25)->nullable();
-            $table->text('deskripsi')->nullable();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('id_category');
+            $table->string('name', 100)->nullable();
+            $table->string('slug', 100)->nullable();
 
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-
-            $table->foreign('id_satuan')->references('id_satuan')->on('satuan')->onDelete('restrict')->onUpdate('cascade');
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('produk');
+        Schema::dropIfExists('categories');
     }
 };

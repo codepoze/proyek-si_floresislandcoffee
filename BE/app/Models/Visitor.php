@@ -2,20 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kendaraan extends Model
+class Visitor extends Model
 {
-    use HasFactory;
-    // table
-    protected $table = 'kendaraan';
-    // primary key
-    protected $primaryKey = 'id_kendaraan';
-    // fields
+    protected $table = 'visitors';
+    protected $primaryKey = 'id_visitor';
     protected $fillable = [
-        'no_pol',
-        'jenis',
+        'ip',
+        'city',
+        'region',
+        'country',
+        'loc',
+        'org',
+        'timezone'
     ];
 
     // booted
