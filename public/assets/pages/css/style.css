@@ -1,0 +1,551 @@
+/* General Body Styles */
+html,
+body {
+    height: 100%;
+    /* Ensure html and body take full height */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Prevent scrollbars on html/body */
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #EFDE80;
+    /* Reverted to yellow background */
+    color: #000000;
+    /* Default text to black */
+    display: flex;
+    flex-direction: column;
+    /* Allow header and main content to stack */
+    align-items: center;
+    /* Center container horizontally */
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* Reduced gap */
+    padding: 10px 15px;
+    /* Reduced top/bottom padding */
+    box-sizing: border-box;
+    flex-grow: 1;
+    /* Allow container to fill available vertical space */
+    overflow: hidden;
+    /* Prevent internal scroll in container if possible */
+}
+
+/* Page Header */
+.page-header {
+    font-size: 1.6em;
+    /* Reduced */
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    padding: 10px 0;
+    /* Reduced */
+    width: 100%;
+    background-color: #EFDE80;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Softer shadow */
+    flex-shrink: 0;
+    /* Prevent header from shrinking */
+}
+
+/* Main Content Wrapper */
+.main-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    /* Reduced gap */
+    flex-grow: 1;
+    /* Allow wrapper to take available space */
+    overflow: hidden;
+    /* Prevent internal scroll */
+}
+
+/* Columns for Main Content */
+.main-content-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    /* Make columns equal height */
+    width: 100%;
+    gap: 15px;
+    /* Reduced gap */
+    flex-grow: 1;
+    /* Allow this section to take space */
+    min-height: 0;
+    /* Fix for flexbox overflow issue in some browsers */
+}
+
+.left-main-column {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Horizontally centers children */
+    gap: 10px;
+    /* Reduced gap */
+    justify-content: flex-start;
+    /* Align items to the start (top) of the column */
+}
+
+/* MODIFIED: .right-main-column is now a flex container */
+.right-main-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    /* Stack header and grid vertically */
+    gap: 10px;
+    /* Gap between "No Antrian" text and the info-boxes grid */
+}
+
+/* NEW: Styles for the "No Antrian Saat Ini" header */
+.current-queue-header {
+    text-align: center;
+    font-size: 2.2em;
+    /* Adjusted for appropriate emphasis */
+    font-weight: 1000;
+    /* Medium weight */
+    color: #000000;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+    padding-top: 5px;
+    /* Add a little space at the top of the right column */
+}
+
+/* NEW: Styles for the grid container of info boxes */
+.info-boxes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* This creates 2 columns */
+    grid-template-rows: repeat(3, 1fr);
+    /* THIS IS THE KEY CHANGE: It creates 3 rows */
+    gap: 10px;
+    /* Gap between info boxes */
+    flex-grow: 1;
+    /* Allow this grid to take remaining space */
+    min-height: 0;
+    /* For flexbox issues */
+}
+
+.slideshow-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    /* Reduced gap */
+    flex-grow: 1;
+    /* Allow slideshow to take available space in left column */
+    min-height: 0;
+}
+
+.slideshow-image-wrapper {
+    background-color: #E2E8F0;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4A5568;
+    font-size: 1.4em;
+    /* Reduced */
+    overflow: hidden;
+    position: relative;
+    flex-grow: 1;
+    /* Allow image wrapper to grow */
+    min-height: 150px;
+    /* Minimum height for very small views */
+}
+
+.slideshow-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+
+.slideshow-image-wrapper .slider-fallback-text {
+    position: absolute;
+    font-size: 0.8em;
+}
+
+#sliderBullets {
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+    /* Reduced */
+    flex-shrink: 0;
+    /* Prevent bullets from shrinking */
+}
+
+#sliderBullets button {
+    width: 8px;
+    /* Reduced */
+    height: 8px;
+    /* Reduced */
+    border-radius: 50%;
+    margin: 0 4px;
+    /* Reduced */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    background-color: #A0AEC0;
+    border: none;
+    padding: 0;
+}
+
+#sliderBullets button.active {
+    background-color: #4A5568;
+}
+
+#sliderBullets button:hover {
+    background-color: #CBD5E0;
+}
+
+/* Info Boxes */
+.info-box {
+    background-color: #000000;
+    color: #EFDE80;
+    padding: 10px 15px;
+    /* Adjusted padding, more horizontal */
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    /* Allow boxes to fill grid cells / flex space */
+    min-height: 80px;
+    /* Minimum height */
+}
+
+.info-box .box-label {
+    font-size: 1.5em;
+    /* Reduced */
+    margin-bottom: 8px;
+    /* Reduced */
+    font-weight: 500;
+}
+
+.info-box .box-code {
+    font-size: 3em;
+    /* Reduced */
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+/* MODIFIED: Target info-boxes within the new grid structure */
+.info-boxes-grid .info-box {
+    height: 100%;
+    /* Ensure they fill grid cell height */
+}
+
+/* Time and Date Section */
+.time-date-section {
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+    padding-bottom: 5px;
+    /* Small padding at bottom of left column */
+}
+
+.time-date-section .time-display {
+    font-size: 4.2em;
+    /* Reduced */
+    font-weight: bold;
+    color: #000000;
+}
+
+.time-date-section .date-display {
+    font-size: 2em;
+    /* Reduced */
+    color: #000000;
+}
+
+/* Queue Section Title */
+.queue-section-title {
+    font-size: 1.4em;
+    /* Reduced */
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    margin-top: 10px;
+    /* Reduced */
+    margin-bottom: 5px;
+    /* Reduced */
+    flex-shrink: 0;
+    width: 100%;
+}
+
+/* Bottom Row of Boxes */
+.bottom-boxes-row {
+    display: flex;
+    flex-wrap: wrap;
+    /* Changed from nowrap to wrap */
+    justify-content: flex-start;
+    /* Align items to the start of the line */
+    gap: 10px;
+    /* Reduced */
+    width: 100%;
+    padding: 5px 0;
+    /* Reduced */
+    flex-shrink: 0;
+}
+
+.bottom-boxes-row .info-box {
+    padding: 8px;
+    /* Further reduced padding for smaller boxes */
+    flex-grow: 1;
+    /* Allow items to grow to fill space */
+    flex-shrink: 1;
+    /* Allow items to shrink if needed */
+    flex-basis: calc(16.666% - 10px);
+    /* Aim for 6 items per row, adjust for gap */
+    min-width: 100px;
+    /* Smaller minimum width */
+    min-height: 70px;
+    /* Adjusted min-height */
+}
+
+.bottom-boxes-row .info-box .box-label {
+    font-size: 1.2em;
+    /* Further reduced */
+}
+
+.bottom-boxes-row .info-box .box-code {
+    font-size: 2.2em;
+    /* Further reduced */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .bottom-boxes-row .info-box {
+        flex-basis: calc(20% - 10px);
+        /* Aim for 5 items */
+    }
+}
+
+@media (max-width: 1024px) and (min-height: 600px) {
+    .slideshow-image-wrapper {
+        min-height: 200px;
+    }
+
+    .bottom-boxes-row .info-box {
+        flex-basis: calc(25% - 10px);
+        /* Aim for 4 items */
+    }
+}
+
+@media (max-width: 1024px) and (max-height: 700px) {
+    .page-header {
+        font-size: 1.5em;
+        padding: 8px 0;
+    }
+
+    .info-box .box-label {
+        font-size: 1em;
+    }
+
+    .info-box .box-code {
+        font-size: 1.8em;
+    }
+
+    .time-date-section .time-display {
+        font-size: 2em;
+    }
+
+    /* Was 3.5em, corrected to 2em as per existing code */
+    /* Date display was missing from original request but it's present in HTML. Let's assume it should scale too. */
+    .time-date-section .date-display {
+        font-size: 1.2em;
+    }
+
+    /* Adjust if needed */
+    .queue-section-title {
+        font-size: 1.3em;
+    }
+
+    .current-queue-header {
+        font-size: 1.1em;
+    }
+
+    /* Adjust responsive size */
+}
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-y: auto;
+    }
+
+    .container {
+        gap: 8px;
+        padding: 8px 10px;
+    }
+
+    .page-header {
+        font-size: 1.4em;
+        padding: 8px 0;
+    }
+
+    .main-content-wrapper {
+        gap: 8px;
+    }
+
+    .main-content-columns {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .left-main-column,
+    .right-main-column {
+        width: 100%;
+        max-width: 500px;
+        flex: none;
+    }
+
+    .slideshow-image-wrapper {
+        font-size: 1.2em;
+        min-height: 120px;
+    }
+
+    .info-box .box-label {
+        font-size: 1em;
+    }
+
+    .info-box .box-code {
+        font-size: 1.8em;
+    }
+
+    .time-date-section .time-display {
+        font-size: 2em;
+    }
+
+    /* Corrected, was 3em in example, sticking to previous values */
+    .time-date-section .date-display {
+        font-size: 1.1em;
+    }
+
+    /* Adjust if needed */
+    .queue-section-title {
+        font-size: 1.3em;
+        margin-top: 8px;
+        margin-bottom: 4px;
+    }
+
+    .current-queue-header {
+        font-size: 1.1em;
+    }
+
+    /* Adjust responsive size */
+
+    .bottom-boxes-row .info-box {
+        flex-basis: calc(33.333% - 10px);
+        /* Aim for 3 items */
+        min-width: 90px;
+        padding: 8px;
+    }
+
+    .bottom-boxes-row .info-box .box-label {
+        font-size: 0.9em;
+    }
+
+    .bottom-boxes-row .info-box .box-code {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        font-size: 1.2em;
+        padding: 6px 0;
+    }
+
+    .info-box {
+        padding: 8px;
+    }
+
+    .info-box .box-label {
+        font-size: 0.9em;
+    }
+
+    .info-box .box-code {
+        font-size: 1.6em;
+    }
+
+    .time-date-section .time-display {
+        font-size: 1.8em;
+    }
+
+    /* Was 2.5em, corrected */
+    .date-display {
+        font-size: 0.9em !important;
+    }
+
+    .queue-section-title {
+        font-size: 1.1em;
+    }
+
+    .current-queue-header {
+        font-size: 1em;
+        padding-top: 3px;
+    }
+
+    /* Adjust responsive size */
+    .slideshow-image-wrapper {
+        font-size: 1em;
+    }
+
+    /* Ensure .right-main-column styling for gap is applied to its new flex context if needed */
+    .right-main-column {
+        gap: 8px;
+        /* This is the gap between header and info-boxes-grid */
+        max-width: 100%;
+    }
+
+    /* And info-boxes-grid retains its 2-column layout and gap */
+    .info-boxes-grid {
+        /* grid-template-columns: repeat(2, 1fr); -- already default */
+        gap: 8px;
+        /* Gap between info boxes */
+    }
+
+    .info-boxes-grid .info-box {
+        /* Or .right-main-column .info-box if it was general */
+        min-height: 70px;
+    }
+
+    .bottom-boxes-row .info-box {
+        flex-basis: calc(50% - 8px);
+        /* Aim for 2 items on very small screens */
+        min-width: 80px;
+        padding: 6px;
+    }
+
+    .bottom-boxes-row .info-box .box-label {
+        font-size: 0.8em;
+    }
+
+    .bottom-boxes-row .info-box .box-code {
+        font-size: 1.4em;
+    }
+}
