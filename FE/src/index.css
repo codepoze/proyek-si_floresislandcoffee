@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/* Flores Island Coffee Color and Font Variables */
+@theme {
+  --color-flores-primary: #005E75;
+  --color-flores-light: #9AD7E5;
+  --color-flores-footer: #143F58;
+  --color-flores-separator: #E2F4F7;
+  
+  --font-family-heading: 'Cormorant Garamond', serif;
+  --font-family-body: 'Raleway', sans-serif;
+}
+
+/* Apply Flores Island Coffee typography system */
+body {
+  font-family: var(--font-family-body);
+  color: var(--color-flores-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+}
+
+.flores-heading {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+}
+
+.flores-body {
+  font-family: var(--font-family-body);
+}

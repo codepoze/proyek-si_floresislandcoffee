@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(c:\\Users\\ASUS\\Downloads/**)",
+      "Read(c:\\Users\\ASUS\\Downloads/**)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss init:*)",
+      "Bash(npm run dev:*)",
+      "Read(c:\\Users\\ASUS\\Downloads/**)",
+      "Read(c:\\Users\\ASUS\\Downloads/**)",
+      "Bash(find:*)",
+      "Bash(sort:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
