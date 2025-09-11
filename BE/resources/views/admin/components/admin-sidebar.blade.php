@@ -33,17 +33,22 @@
                     <i data-feather="list"></i><span class="menu-title text-truncate">Slider</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ Route::is('admin.social_media.index') ? 'active' : '' }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.social_media.index') }}">
                     <i data-feather="list"></i><span class="menu-title text-truncate">Sosial Media</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ Route::is('admin.visitor.index') ? 'active' : '' }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.visitor.index') }}">
                     <i data-feather="list"></i><span class="menu-title text-truncate">Pengunjung</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ Route::is('admin.subscriber.index') ? 'active' : '' }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.subscriber.index') }}">
+                    <i data-feather="list"></i><span class="menu-title text-truncate">Pelanggan</span>
+                </a>
+            </li>
+            <li class="nav-item {{ Route::is('admin.contact.index') ? 'active' : '' }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.contact.index') }}">
                     <i data-feather="list"></i><span class="menu-title text-truncate">Kontak</span>
                 </a>
@@ -52,18 +57,18 @@
             <li class="navigation-header">
                 <span>Blog</span><i data-feather="more-horizontal"></i>
             </li>
-            <li class="nav-item">
-                <a class="d-flex align-items-center" href="#">
+            <li class="nav-item {{ Route::is('admin.category.index') ? 'active' : '' }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.category.index') }}">
                     <i data-feather="list"></i><span class="menu-title text-truncate">Kategori</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="d-flex align-items-center" href="#">
+            <li class="nav-item {{ Route::is('admin.tag.index') ? 'active' : '' }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.tag.index') }}">
                     <i data-feather="list"></i><span class="menu-title text-truncate">Tag</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="d-flex align-items-center" href="#">
+            <li class="nav-item {{ Route::is('admin.post.index') ? 'active' : '' }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.post.index') }}">
                     <i data-feather="list"></i><span class="menu-title text-truncate">Post</span>
                 </a>
             </li>
