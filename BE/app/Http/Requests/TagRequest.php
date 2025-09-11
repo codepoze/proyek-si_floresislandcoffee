@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Response;
 
-class SocialMediaRequest extends FormRequest
+class TagRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -18,8 +18,6 @@ class SocialMediaRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'icon' => 'required',
-            'link' => 'required',
         ];
     }
 
@@ -27,8 +25,6 @@ class SocialMediaRequest extends FormRequest
     {
         return [
             'name.required' => 'Nama tidak boleh kosong',
-            'icon.required' => 'Icon tidak boleh kosong',
-            'link.required' => 'Link tidak boleh kosong',
         ];
     }
 

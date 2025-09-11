@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('loc', 100)->nullable();
             $table->string('org', 100)->nullable();
             $table->string('timezone', 100)->nullable();
+            
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

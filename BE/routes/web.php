@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SocialMediaController;
+use App\Http\Controllers\Admin\SubscriberController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\VisitorController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -46,10 +49,47 @@ Route::middleware('auth.session', 'prevent.back.history')->prefix('admin')->as('
     });
     // end:: contact
 
+    // begin:: subscriber
+    Route::controller(SubscriberController::class)->prefix('subscriber')->as('subscriber.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/list', 'list')->name('list');
+    });
+    // end:: subscriber
+
     // begin:: visitor
     Route::controller(VisitorController::class)->prefix('visitor')->as('visitor.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/list', 'list')->name('list');
     });
     // end:: visitor
+
+    // begin:: category
+    Route::controller(CategoryController::class)->prefix('category')->as('category.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/list', 'list')->name('list');
+        Route::post('/show', 'show')->name('show');
+        Route::post('/save', 'save')->name('save');
+        Route::post('/del', 'del')->name('del');
+    });
+    // end:: category
+
+    // begin:: tag
+    Route::controller(TagController::class)->prefix('tag')->as('tag.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/list', 'list')->name('list');
+        Route::post('/show', 'show')->name('show');
+        Route::post('/save', 'save')->name('save');
+        Route::post('/del', 'del')->name('del');
+    });
+    // end:: tag
+
+    // begin:: post
+    Route::controller(PostController::class)->prefix('post')->as('post.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/list', 'list')->name('list');
+        Route::post('/show', 'show')->name('show');
+        Route::post('/save', 'save')->name('save');
+        Route::post('/del', 'del')->name('del');
+    });
+    // end:: post
 });
