@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router';
 import { gsap } from 'gsap';
+import SEOHead from './components/SEOHead';
 import ValueCard from './components/ValueCard';
 import ProductCard from './components/ProductCard';
 import NewsCard from './components/NewsCard';
@@ -40,7 +41,13 @@ function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEOHead 
+        title="Flores Island Coffee - Premium Indonesian Coffee Beans & Export"
+        description="Discover premium single-origin coffee beans from Flores Island, Indonesia. Sustainable coffee farming, specialty roasting, wholesale export worldwide. Authentic Indonesian coffee experience from farm to cup."
+        keywords="flores island coffee, indonesian coffee export, premium coffee beans, specialty coffee roasting, sustainable coffee farming, coffee wholesale indonesia, single origin coffee, arabica coffee beans, indonesian coffee supplier, coffee bean export, volcanic soil coffee, flores coffee plantation, organic coffee indonesia, fair trade coffee"
+      />
+      <div className="min-h-screen">
       {/* Hero Section with Coffee Farmers */}
       <section 
         ref={heroRef}
@@ -52,11 +59,11 @@ function Home() {
             {/* Coffee Bean Icon */}
             <div className="mb-8">
               <div className="w-20 h-20 mx-auto mb-6 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
-                <img src={logoCoffee} alt="" srcSet="" />
+                <img src={logoCoffee} alt="Flores Island Coffee Logo - Premium Indonesian Coffee" />
               </div>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-6xl font-bold mb-6 tracking-tight font-heading leading-tight">
-              The richness of Flores coffee echoes the depth of its emerald hills and ocean skies.
+              Premium Flores Island Coffee - The richness echoes the depth of emerald hills and ocean skies
             </h1>
           </div>
         </div>
@@ -67,11 +74,11 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-2xl lg:text-3xl font-medium tracking-wide text-flores-primary uppercase mb-3 font-body">
-              Our Values
+              Our Coffee Values - Sustainable Indonesian Coffee Production
             </h2>
             <p className="text-3xl md:text-4xl font-semibold text-flores-primary leading-relaxed font-heading">
-              An innovation in coffee, <br />
-              rooted in the soul of Flores soil.
+              Innovation in specialty coffee farming, <br />
+              rooted in the volcanic soil of Flores Island.
             </p>
           </div>
 
@@ -346,7 +353,8 @@ function Home() {
           </form>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 

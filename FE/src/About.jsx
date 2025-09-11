@@ -1,6 +1,14 @@
+import SEOHead from './components/SEOHead';
+
 function About() {
   return (
-    <div className="bg-white">
+    <>
+      <SEOHead 
+        title="About Flores Island Coffee - Indonesian Coffee Export & Sustainable Farming Partnership"
+        description="Learn about Flores Island Coffee - a strategic New Zealand-Indonesia partnership driving sustainable growth in specialty coffee. 370,000+ members, 222,000 smallholder farmers, premium coffee export from Flores Island."
+        keywords="about flores island coffee, indonesian coffee partnership, sustainable coffee farming, specialty coffee export, flores island coffee company, coffee cooperative indonesia, smallholder coffee farmers, premium coffee production, coffee supply chain indonesia, sustainable agriculture flores"
+      />
+      <div className="bg-white">
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
@@ -429,7 +437,8 @@ function About() {
         </div>
       </section>
 
-    </div>
+      </div>
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SEOHead from './components/SEOHead';
 import { 
   EnvelopeIcon, 
   PhoneIcon, 
@@ -92,7 +93,13 @@ function Contact() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEOHead 
+        title="Contact Flores Island Coffee - Indonesian Coffee Export & Wholesale Inquiries"
+        description="Contact Flores Island Coffee for premium Indonesian coffee export, wholesale partnerships, and business inquiries. Located in Maumere, Flores Island. Get in touch for specialty coffee bean orders and international shipping."
+        keywords="contact flores island coffee, indonesian coffee export contact, coffee wholesale inquiries, coffee bean supplier contact, flores coffee export, indonesian coffee business contact, coffee trading company contact, wholesale coffee indonesia, coffee export inquiries, specialty coffee supplier contact"
+      />
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section 
         className="relative h-[70vh] bg-cover bg-center bg-no-repeat flex items-center"
@@ -103,11 +110,11 @@ function Contact() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
         <div className="relative max-w-7xl mx-auto px-6 text-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 font-heading">
-            Get in Touch
+            Contact Flores Island Coffee Export
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-body opacity-90">
-            Connect with us about partnerships, wholesale inquiries, or learn more about 
-            our premium Flores Island coffee. We're here to help.
+            Connect with us for Indonesian coffee export partnerships, wholesale inquiries, and premium specialty coffee orders. 
+            Based in Maumere, Flores Island - serving coffee businesses worldwide.
           </p>
         </div>
       </section>
@@ -370,7 +377,8 @@ function Contact() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 

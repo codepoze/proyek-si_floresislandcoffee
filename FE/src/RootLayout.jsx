@@ -4,6 +4,7 @@ import logo from './assets/logo/logoColor.png';
 import logoFooter from './assets/logo/logo.png';
 import ScrollToTop from './components/ScrollToTop';
 import PageTransition from './components/PageTransition';
+import ScrollToTopButton from './components/ScrollToTopButton';
 import {
   Dialog,
   DialogPanel,
@@ -148,6 +149,9 @@ function RootLayout() {
           <Outlet />
         </PageTransition>
       </main>
+
+      {/* Floating Scroll to Top Button */}
+      <ScrollToTopButton />
 
       {/* Footer */}
       <footer className="bg-[#143F58] text-white">

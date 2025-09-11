@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
+import SEOHead from './components/SEOHead';
 import { newsData } from './data/newsData';
 import NewsCard from './components/NewsCard';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
@@ -51,16 +52,22 @@ function News() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <SEOHead 
+        title="Coffee News - Latest Updates from Flores Island Coffee Industry"
+        description="Stay updated with the latest coffee news, brewing techniques, roasting guides, and industry insights from Flores Island Coffee. Expert articles on Indonesian coffee farming, export trends, and specialty coffee."
+        keywords="coffee news, coffee industry news, coffee brewing techniques, coffee roasting guide, indonesian coffee news, flores island coffee updates, coffee farming news, coffee export news, specialty coffee articles, coffee processing techniques, sustainable coffee news"
+      />
+      <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-flores-primary py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 font-heading">
-            Coffee News
+            Indonesian Coffee News & Industry Insights
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-body">
-            Stay updated with the latest stories, insights, and developments from the world of Flores Island Coffee. 
-            From farming techniques to brewing methods, discover everything about our coffee journey.
+            Stay updated with the latest coffee industry news, expert brewing techniques, and sustainable farming insights from Flores Island Coffee. 
+            From specialty coffee roasting to Indonesian coffee export trends, discover everything about our premium coffee journey.
           </p>
         </div>
       </section>
@@ -227,7 +234,8 @@ function News() {
           </form>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 

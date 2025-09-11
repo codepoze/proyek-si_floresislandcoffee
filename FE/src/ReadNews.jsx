@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from 'react-router';
+import SEOHead from './components/SEOHead';
 import { newsData } from './data/newsData';
 
 function ReadNews() {
@@ -164,7 +165,13 @@ function ReadNews() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEOHead 
+        title={`${newsArticle.title} - Flores Island Coffee News`}
+        description={newsArticle.content[0]?.text?.substring(0, 160) || 'Expert coffee insights and brewing techniques from Flores Island Coffee'}
+        keywords={`${newsArticle.category.toLowerCase()}, coffee ${newsArticle.category.toLowerCase()}, flores island coffee, indonesian coffee, coffee techniques, specialty coffee, coffee industry news`}
+      />
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-[70vh] overflow-hidden">
         <img 
@@ -257,7 +264,8 @@ function ReadNews() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 
