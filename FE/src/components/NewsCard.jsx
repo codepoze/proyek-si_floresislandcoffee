@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 const NewsCard = ({ image, alt, category, title, href = "#" }) => {
   return (
     <div className="relative rounded-2xl overflow-hidden shadow-lg group hover:shadow-xl transition-shadow duration-300">
@@ -13,12 +15,12 @@ const NewsCard = ({ image, alt, category, title, href = "#" }) => {
           {title}: {category}
         </h3>
         {href !== "#" && (
-          <a 
-            href={href} 
+          <Link 
+            to={href} 
             className="inline-block mt-3 text-sm font-medium tracking-wide transition-colors hover:text-gray-300"
           >
             Continue Reading →
-          </a>
+          </Link>
         )}
       </div>
     </div>

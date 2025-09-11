@@ -9,7 +9,8 @@
       "Read(c:\\Users\\ASUS\\Downloads/**)",
       "Read(c:\\Users\\ASUS\\Downloads/**)",
       "Bash(find:*)",
-      "Bash(sort:*)"
+      "Bash(sort:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []

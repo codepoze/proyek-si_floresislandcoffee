@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, NavLink } from "react-router";
-import logo from './assets/logo/logo.png';
+import logo from './assets/logo/logoColor.png';
+import logoFooter from './assets/logo/logo.png';
 import {
   Dialog,
   DialogPanel,
@@ -44,15 +45,13 @@ function RootLayout() {
         <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between px-3 py-2 lg:px-4">
 
           {/* Logo */}
-          <div className="flex bg-flores-primary">
+          <div className="flex">
             <Link to="/" className="-m-1.5 p-1.5">
               <img
                 src={logo}
                 alt="Flores Island Coffee"
-                className="h-12 w-auto"
-                // style={{ filter: "invert(41%) sepia(14%) saturate(659%) hue-rotate(159deg) brightness(90%) contrast(88%)" }}
+                className="h-13 w-auto"
               />
-
             </Link>
           </div>
 
@@ -152,7 +151,7 @@ function RootLayout() {
             {/* Left Column - Logo and Contact */}
             <div className="md:w-96 space-y-20">
               <div>
-                <img src={logo} alt="Flores Island Coffee" className="h-26 w-auto" />
+                <img src={logoFooter} alt="Flores Island Coffee" className="h-26 w-auto" />
               </div>
 
               <div className="space-y-2">
