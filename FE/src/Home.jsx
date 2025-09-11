@@ -1,3 +1,6 @@
+import { useEffect, useRef } from 'react';
+import { Link } from 'react-router';
+import { gsap } from 'gsap';
 import ValueCard from './components/ValueCard';
 import ProductCard from './components/ProductCard';
 import NewsCard from './components/NewsCard';
@@ -6,6 +9,7 @@ import { valuesData } from './data/valuesData';
 import { productsData } from './data/productsData';
 import { newsData } from './data/newsData';
 import { specialtyData } from './data/specialtyData';
+import { useScrollAnimation, useStaggerAnimation } from './hooks/useGSAP';
 import heroImage from './assets/hero.png';
 import logoCoffee from './assets/logoCoffee.png';
 import banner from './assets/banner.jpg';
@@ -13,16 +17,42 @@ import coffeeHarvest from './assets/coffee-farm.png';
 
 
 function Home() {
+  const heroRef = useRef();
+  const heroContentRef = useRef();
+  const valuesRef = useStaggerAnimation();
+  const sustainabilityRef = useScrollAnimation();
+  const productsRef = useStaggerAnimation();
+  const newsRef = useStaggerAnimation();
+
+  useEffect(() => {
+    // Hero entrance animation
+    const tl = gsap.timeline();
+    
+    tl.fromTo(heroRef.current, 
+      { opacity: 0 },
+      { opacity: 1, duration: 1.5, ease: 'power2.out' }
+    )
+    .fromTo(heroContentRef.current.children,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: 'power2.out' },
+      0.5
+    );
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section with Coffee Farmers */}
-      <section className="relative h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${heroImage})` }}>
+      <section 
+        ref={heroRef}
+        className="relative h-screen bg-cover bg-center bg-no-repeat" 
+        style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${heroImage})` }}
+      >
         <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-          <div className="max-w-4xl px-6">
+          <div ref={heroContentRef} className="max-w-4xl px-6">
             {/* Coffee Bean Icon */}
             <div className="mb-8">
               <div className="w-20 h-20 mx-auto mb-6 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
-                <img src={logoCoffee} alt="" srcset="" />
+                <img src={logoCoffee} alt="" srcSet="" />
               </div>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-6xl font-bold mb-6 tracking-tight font-heading leading-tight">
@@ -45,7 +75,7 @@ function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div ref={valuesRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {valuesData.map((value) => (
               <ValueCard
                 key={value.id}
@@ -63,7 +93,7 @@ function Home() {
       {/* Sustainability Section */}
       <section className="py-20 bg-gradient-to-br from-flores-separator to-flores-light/30">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div ref={sustainabilityRef} className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h1 className='text-3xl mb-4 font-semibold'>COFFEE ORIGIN</h1>
               <h2 className="text-5xl font-bold text-flores-primary mb-8 font-heading">Born in Flores,
@@ -199,7 +229,7 @@ function Home() {
       {/* Product Showcase */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div ref={productsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {productsData.map((product) => (
               <ProductCard
                 key={product.id}
@@ -249,8 +279,11 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-5xl font-bold text-flores-primary mb-16 text-center font-heading">Coffee News</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {newsData.map((news) => (
+          <div ref={newsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {newsData
+              .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate))
+              .slice(0, 3)
+              .map((news) => (
               <NewsCard
                 key={news.id}
                 image={news.image}
@@ -261,6 +294,29 @@ function Home() {
                 href={news.href}
               />
             ))}
+          </div>
+          
+          {/* See More Button */}
+          <div className="text-center mt-12">
+            <Link 
+              to="/news"
+              className="inline-flex items-center bg-flores-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-flores-primary/90 transition-colors duration-300 font-body"
+            >
+              See More News
+              <svg 
+                className="w-5 h-5 ml-2" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M17 8l4 4m0 0l-4 4m4-4H3" 
+                />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
@@ -283,7 +339,7 @@ function Home() {
             />
             <button
               type="submit"
-              className="w-full sm:w-auto bg-gray-800 text-white font-semibold px-8 py-3 rounded-md hover:bg-gray-700 transition-colors duration-300"
+              className="w-full sm:w-auto bg-flores-primary text-white font-semibold px-8 py-3 rounded-md hover:bg-gray-700 transition-colors duration-300"
             >
               Subscribe
             </button>

@@ -1,7 +1,10 @@
+import { useHoverAnimation } from '../hooks/useGSAP';
+
 const ProductCard = ({ type, title, subtitle, image, backgroundImg, alt, className = "" }) => {
+  const hoverRef = useHoverAnimation();
   if (type === "category") {
     return (
-      <div className={`bg-[#264653] text-white p-6 flex flex-col items-center justify-center rounded-xl text-center transition-transform duration-500 hover:scale-105 ${className}`}>
+      <div ref={hoverRef} className={`bg-[#264653] text-white p-6 flex flex-col items-center justify-center rounded-xl text-center transition-transform duration-500 hover:scale-105 ${className}`}>
         <h3 className="text-6xl font-bold mb-2">{title}</h3>
         <p className="text-2xl opacity-90">{subtitle}</p>
       </div>
@@ -11,6 +14,7 @@ const ProductCard = ({ type, title, subtitle, image, backgroundImg, alt, classNa
   if (type === "image") {
     return (
       <div 
+        ref={hoverRef}
         className={`relative group overflow-hidden rounded-xl h-80 bg-cover bg-center ${className}`}
         style={{ backgroundImage: backgroundImg ? `url(${backgroundImg})` : 'none' }}
       >

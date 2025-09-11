@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Outlet, Link, NavLink } from "react-router";
 import logo from './assets/logo/logoColor.png';
 import logoFooter from './assets/logo/logo.png';
+import ScrollToTop from './components/ScrollToTop';
+import PageTransition from './components/PageTransition';
 import {
   Dialog,
   DialogPanel,
@@ -137,9 +139,14 @@ function RootLayout() {
         </Dialog>
       </header>
 
+      {/* Scroll to top on route change */}
+      <ScrollToTop />
+      
       {/* Main Content Rendered by Child Routes */}
       <main>
-        <Outlet />
+        <PageTransition>
+          <Outlet />
+        </PageTransition>
       </main>
 
       {/* Footer */}

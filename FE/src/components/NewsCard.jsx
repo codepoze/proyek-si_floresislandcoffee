@@ -1,8 +1,11 @@
 import { Link } from 'react-router';
+import { useHoverAnimation } from '../hooks/useGSAP';
 
 const NewsCard = ({ image, alt, category, title, href = "#" }) => {
+  const hoverRef = useHoverAnimation();
+
   return (
-    <div className="relative rounded-2xl overflow-hidden shadow-lg group hover:shadow-xl transition-shadow duration-300">
+    <div ref={hoverRef} className="relative rounded-2xl overflow-hidden shadow-lg group hover:shadow-xl transition-shadow duration-300">
       <img 
         src={image} 
         alt={alt} 
