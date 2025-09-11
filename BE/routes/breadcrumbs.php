@@ -12,3 +12,21 @@ Breadcrumbs::for('admin.akun.index', function (BreadcrumbTrail $trail) {
 
     $trail->push('Akun', route('admin.akun.index'));
 });
+
+Breadcrumbs::for('admin.social_media.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard.index');
+
+    $trail->push('Social Media', route('admin.social_media.index'));
+});
+
+Breadcrumbs::for('admin.contact.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard.index');
+
+    $trail->push('Contact', route('admin.contact.index'));
+});
+
+Breadcrumbs::for('admin.visitor.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard.index');
+
+    $trail->push('Visitor', route('admin.visitor.index'));
+});

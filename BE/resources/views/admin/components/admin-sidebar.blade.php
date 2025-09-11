@@ -4,7 +4,7 @@
             <!-- begin:: brand -->
             <li class="nav-item me-auto">
                 <a class="navbar-brand" href="#">
-                    <h2 class="brand-text">ANTREAN</h2>
+                    <h2 class="brand-text">FIC PANEL</h2>
                 </a>
             </li>
             <li class="nav-item nav-toggle" style="color: #000;">
@@ -34,17 +34,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="d-flex align-items-center" href="#">
+                <a class="d-flex align-items-center" href="{{ route('admin.social_media.index') }}">
                     <i data-feather="list"></i><span class="menu-title text-truncate">Sosial Media</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="d-flex align-items-center" href="#">
+                <a class="d-flex align-items-center" href="{{ route('admin.visitor.index') }}">
                     <i data-feather="list"></i><span class="menu-title text-truncate">Pengunjung</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="d-flex align-items-center" href="#">
+                <a class="d-flex align-items-center" href="{{ route('admin.contact.index') }}">
                     <i data-feather="list"></i><span class="menu-title text-truncate">Kontak</span>
                 </a>
             </li>
