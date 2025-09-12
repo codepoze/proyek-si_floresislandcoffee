@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
@@ -121,13 +122,8 @@ const NTTMap = ({ className = "" }) => {
   
   // NTT region coordinates focused on coffee marker areas
   const nttCenter = [-8.65, 121.5]; // Centered around Maumere and coffee locations
-  const nttBounds = [
-    [-9.2, 119.8], // Southwest corner (tighter bounds)
-    [-7.8, 123.0]  // Northeast corner (tighter bounds)
-  ];
-
   // Handle region click
-  const handleRegionClick = (feature, event) => {
+  const handleRegionClick = (feature) => {
     setSelectedRegion(feature);
     console.log('Region clicked:', feature.properties);
     
@@ -188,7 +184,7 @@ const NTTMap = ({ className = "" }) => {
       <MapContainer
         ref={mapRef}
         center={nttCenter}
-        zoom={10}
+        zoom={8}
         style={{ 
           height: '400px', 
           width: '100%', 

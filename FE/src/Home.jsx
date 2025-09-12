@@ -15,7 +15,6 @@ import heroImage from './assets/hero.png';
 import logoCoffee from './assets/logoCoffee.png';
 import banner from './assets/banner.jpg';
 import coffeeHarvest from './assets/coffee-farm.png';
-import coffeeMarker from './assets/coffe-circle.png';
 import NTTMap from './components/NTTMap';
 import 'leaflet/dist/leaflet.css';
 
