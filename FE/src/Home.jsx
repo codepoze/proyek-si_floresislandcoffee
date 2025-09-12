@@ -15,6 +15,9 @@ import heroImage from './assets/hero.png';
 import logoCoffee from './assets/logoCoffee.png';
 import banner from './assets/banner.jpg';
 import coffeeHarvest from './assets/coffee-farm.png';
+import coffeeMarker from './assets/coffe-circle.png';
+import NTTMap from './components/NTTMap';
+import 'leaflet/dist/leaflet.css';
 
 
 function Home() {
@@ -159,84 +162,21 @@ function Home() {
             a story of tradition and dedication.
           </h2>
 
-          {/* Map container - Desktop and Tablet */}
-          <div className="hidden md:block relative w-full max-w-5xl mx-auto">
-            {/* Map Image (dummy) */}
-            <img
-              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=500&fit=crop&crop=center"
-              alt="Flores Island map"
-              className="w-full object-cover rounded-lg"
-            />
-
-            {/* Marker */}
-            <div className="absolute left-[65%] top-[40%] transform -translate-x-1/2 -translate-y-1/2">
-              <div className="w-4 h-4 md:w-6 md:h-6 bg-flores-primary text-white flex items-center justify-center rounded-full shadow-lg text-xs md:text-base">
-                ☕
-              </div>
-            </div>
-
-            {/* Popup Card */}
-            <div className="absolute right-0 md:right-4 lg:right-8 top-[20%] md:top-[30%] bg-white rounded-2xl shadow-lg p-3 md:p-4 lg:p-6 w-64 md:w-72 lg:w-80 xl:w-96">
-              <div className="flex md:block items-center gap-3 md:gap-0">
-                <img
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=400&fit=crop"
-                  alt="Factory in Maumere"
-                  className="w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 rounded-lg object-cover md:float-right md:ml-4 md:mb-2"
-                />
-                <div className="flex-1 text-left">
-                  <h4 className="text-xs uppercase text-flores-primary/70 font-body">Our Factory</h4>
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-flores-primary font-heading">Maumere</h3>
-                  <p className="text-flores-primary/80 text-xs md:text-sm mt-1 md:mt-2 font-body">
-                    The heart of our production, where quality control and craft roasting begin.
-                  </p>
-                  <a
-                    href="#"
-                    className="inline-block mt-2 md:mt-4 px-3 md:px-4 py-1.5 md:py-2 bg-flores-primary text-white rounded-md text-xs md:text-sm hover:bg-flores-primary/90 transition font-body"
-                  >
-                    Read More
-                  </a>
-                </div>
-              </div>
-            </div>
+          {/* Interactive Map - Desktop and Tablet */}
+          <div className="hidden md:block w-full max-w-5xl mx-auto">
+            <NTTMap className="rounded-lg shadow-lg" />
           </div>
 
-          {/* Mobile Version */}
+          {/* Interactive Map - Mobile Version */}
           <div className="md:hidden">
-            <img
-              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=400&fit=crop&crop=center"
-              alt="Flores Island map"
-              className="w-full object-cover rounded-lg mb-6"
-            />
-
-            {/* Factory Card - Mobile */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 max-w-md mx-auto border">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 bg-flores-primary text-white flex items-center justify-center rounded-full">
-                  ☕
-                </div>
-                <div className="text-left">
-                  <h4 className="text-xs uppercase text-flores-primary/70 font-body">Our Factory</h4>
-                  <h3 className="text-xl font-bold text-flores-primary font-heading">Maumere</h3>
-                </div>
-              </div>
-              <p className="text-flores-primary/80 text-sm mb-4 font-body">
-                The heart of our production, where quality control and craft roasting begin.
-              </p>
-              <a
-                href="#"
-                className="inline-block px-4 py-2 bg-flores-primary text-white rounded-md text-sm hover:bg-flores-primary/90 transition font-body"
-              >
-                Read More
-              </a>
-            </div>
+            <NTTMap className="rounded-lg shadow-lg mb-6" />
           </div>
 
-          {/* Legend */}
-          <div className="flex items-center justify-center gap-2 mt-6">
-            <div className="w-6 h-6 flex items-center justify-center rounded-full bg-flores-primary text-white">
-              ☕
-            </div>
-            <span className="text-flores-primary font-body">Coffee Mill</span>
+          {/* Map Description */}
+          <div className="text-center mt-8">
+            <p className="text-flores-primary/80 font-body max-w-2xl mx-auto">
+              Explore our coffee locations across Nusa Tenggara Timur. Click on the markers to learn more about each location and our coffee cultivation process.
+            </p>
           </div>
         </div>
       </section>
