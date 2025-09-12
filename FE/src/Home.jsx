@@ -26,18 +26,43 @@ function Home() {
   const newsRef = useStaggerAnimation();
 
   useEffect(() => {
-    // Hero entrance animation
+    const heroElement = heroRef.current;
+    const heroContentElement = heroContentRef.current;
+    
+    // Set will-change for performance
+    if (heroElement) {
+      heroElement.style.willChange = 'opacity';
+    }
+    if (heroContentElement) {
+      Array.from(heroContentElement.children).forEach(child => {
+        child.style.willChange = 'transform, opacity';
+      });
+    }
+
+    // Hero entrance animation - reduced duration and complexity
     const tl = gsap.timeline();
     
-    tl.fromTo(heroRef.current, 
-      { opacity: 0 },
-      { opacity: 1, duration: 1.5, ease: 'power2.out' }
+    tl.fromTo(heroElement, 
+      { opacity: 0, force3D: true },
+      { opacity: 1, duration: 0.8, ease: 'power2.out' }
     )
-    .fromTo(heroContentRef.current.children,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: 'power2.out' },
-      0.5
+    .fromTo(heroContentElement?.children,
+      { opacity: 0, y: 30, force3D: true },
+      { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out', force3D: true },
+      0.3
     );
+
+    // Cleanup function
+    return () => {
+      if (heroElement) {
+        heroElement.style.willChange = 'auto';
+      }
+      if (heroContentElement) {
+        Array.from(heroContentElement.children).forEach(child => {
+          child.style.willChange = 'auto';
+        });
+      }
+    };
   }, []);
 
   return (
