@@ -8,13 +8,42 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 import {
   Dialog,
   DialogPanel,
+  Transition,
+  TransitionChild,
 } from '@headlessui/react';
 import {
-  Bars3Icon,
   XMarkIcon,
   UserIcon,
   MagnifyingGlassIcon,
 } from '@heroicons/react/24/outline';
+
+// Animated Hamburger Icon Component
+const AnimatedHamburger = ({ isOpen, onClick }) => (
+  <button
+    type="button"
+    onClick={onClick}
+    className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-flores-primary relative w-10 h-10"
+  >
+    <span className="sr-only">{isOpen ? 'Close menu' : 'Open main menu'}</span>
+    <div className="w-6 h-6 flex flex-col justify-center items-center">
+      <span 
+        className={`block w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${
+          isOpen ? 'rotate-45 translate-y-1.5' : 'translate-y-0'
+        }`}
+      />
+      <span 
+        className={`block w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out mt-1 ${
+          isOpen ? 'opacity-0' : 'opacity-100'
+        }`}
+      />
+      <span 
+        className={`block w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out mt-1 ${
+          isOpen ? '-rotate-45 -translate-y-1.5' : 'translate-y-0'
+        }`}
+      />
+    </div>
+  </button>
+);
 
 function RootLayout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -60,14 +89,10 @@ function RootLayout() {
 
           {/* Mobile menu button */}
           <div className="flex lg:hidden">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(true)}
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-flores-primary"
-            >
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
-            </button>
+            <AnimatedHamburger 
+              isOpen={mobileMenuOpen} 
+              onClick={() => setMobileMenuOpen(true)} 
+            />
           </div>
 
           {/* Right side navigation - Desktop Navigation + Icons */}
@@ -89,7 +114,7 @@ function RootLayout() {
             </div>
 
             {/* Icons */}
-            <div className="flex items-center gap-x-4 ml-4">
+            {/* <div className="flex items-center gap-x-4 ml-4">
               <Link to="/profile" className="text-flores-primary hover:text-flores-primary/80">
                 <span className="sr-only">Profile</span>
                 <UserIcon className="h-6 w-6" aria-hidden="true" />
@@ -98,18 +123,37 @@ function RootLayout() {
                 <span className="sr-only">Search</span>
                 <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
               </button>
-            </div>
+            </div> */}
           </div>
         </nav>
 
         {/* Mobile Navigation */}
-        <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-          <div className="fixed inset-0 z-50" />
-          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Transition show={mobileMenuOpen} as={Dialog} onClose={setMobileMenuOpen} className="lg:hidden">
+          <TransitionChild
+            as="div"
+            enter="transition-opacity ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 z-50 bg-black/25" />
+          </TransitionChild>
+          <TransitionChild
+            as={DialogPanel}
+            className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+            enter="transition ease-out duration-300 transform"
+            enterFrom="translate-x-full"
+            enterTo="translate-x-0"
+            leave="transition ease-in duration-200 transform"
+            leaveFrom="translate-x-0"
+            leaveTo="translate-x-full"
+          >
             <div className="flex items-center justify-between">
               <Link to="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
                 <span className="sr-only">Flores Island Coffee</span>
-                <img src={logo} alt="Flores Island Coffee" className="h-10 w-auto brightness-0 saturate-100" style={{ filter: 'invert(18%) sepia(95%) saturate(1234%) hue-rotate(169deg) brightness(96%) contrast(96%)' }} />
+                <img src={logo} alt="Flores Island Coffee" className="h-13 w-auto brightness-0 saturate-100" />
               </Link>
               <button
                 type="button"
@@ -123,21 +167,57 @@ function RootLayout() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-4">
-                  <Link to="/about" onClick={() => setMobileMenuOpen(false)} className={mobileNavLinkClass}>About Us</Link>
-                  <Link to="/products" onClick={() => setMobileMenuOpen(false)} className={mobileNavLinkClass}>Product</Link>
-                  <Link to="/news" onClick={() => setMobileMenuOpen(false)} className={mobileNavLinkClass}>News</Link>
-                  <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className={mobileNavLinkClass}>Contact</Link>
+                  <Link 
+                    to="/about" 
+                    onClick={() => setMobileMenuOpen(false)} 
+                    className={`${mobileNavLinkClass} transform transition-all duration-500 ease-out ${
+                      mobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                    }`}
+                    style={{ transitionDelay: mobileMenuOpen ? '200ms' : '0ms' }}
+                  >
+                    About Us
+                  </Link>
+                  <Link 
+                    to="/products" 
+                    onClick={() => setMobileMenuOpen(false)} 
+                    className={`${mobileNavLinkClass} transform transition-all duration-500 ease-out ${
+                      mobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                    }`}
+                    style={{ transitionDelay: mobileMenuOpen ? '300ms' : '0ms' }}
+                  >
+                    Product
+                  </Link>
+                  <Link 
+                    to="/news" 
+                    onClick={() => setMobileMenuOpen(false)} 
+                    className={`${mobileNavLinkClass} transform transition-all duration-500 ease-out ${
+                      mobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                    }`}
+                    style={{ transitionDelay: mobileMenuOpen ? '400ms' : '0ms' }}
+                  >
+                    News
+                  </Link>
+                  <Link 
+                    to="/contact" 
+                    onClick={() => setMobileMenuOpen(false)} 
+                    className={`${mobileNavLinkClass} transform transition-all duration-500 ease-out ${
+                      mobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                    }`}
+                    style={{ transitionDelay: mobileMenuOpen ? '500ms' : '0ms' }}
+                  >
+                    Contact
+                  </Link>
                 </div>
-                <div className="py-4">
+                {/* <div className="py-4">
                   <Link to="/profile" onClick={() => setMobileMenuOpen(false)} className="-mx-3 flex items-center gap-x-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 font-body text-flores-primary hover:bg-flores-light/20">
                     <UserIcon className="h-6 w-6 text-flores-primary" />
                     Profile
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
-          </DialogPanel>
-        </Dialog>
+          </TransitionChild>
+        </Transition>
       </header>
 
       {/* Scroll to top on route change */}
@@ -165,7 +245,7 @@ function RootLayout() {
                 <img src={logoFooter} alt="Flores Island Coffee" className="h-26 w-auto" />
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-2 mb-6">
                 {/* Email Contact */}
                 <div className="flex items-center gap-3">
                   {/* Email Icon */}
@@ -199,7 +279,7 @@ function RootLayout() {
 
 
             {/* Middle Column - Links */}
-            <div className="md:w-64">
+            <div className="md:w-64 mb-8">
               <h3 className="text-3xl font-bold text-white mb-8 font-heading">
                 Flores Island
                 <br />
