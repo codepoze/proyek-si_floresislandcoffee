@@ -3,7 +3,7 @@ export const teamData = [
     id: 1,
     name: "Mustika Ridwan",
     position: "Director",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    image: "https://static.vecteezy.com/system/resources/previews/023/570/233/non_2x/business-woman-isolated-illustration-ai-generative-free-photo.jpg",
     alt: "Mustika Ridwan, Director of Flores Island Coffee"
   },
   {
@@ -17,7 +17,7 @@ export const teamData = [
     id: 3,
     name: "Vivi",
     position: "Finance Director",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+    image: "https://plus.unsplash.com/premium_photo-1661688791119-418b28a3ca60?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8",
     alt: "Vivi, Finance Director of Flores Island Coffee"
   },
   {

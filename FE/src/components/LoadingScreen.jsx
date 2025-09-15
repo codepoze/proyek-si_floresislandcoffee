@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import logoAlt from '../assets/logo/logoAlt.png';
+import logoAlt from '../assets/loadingLogo.png';
 import heroImage from '../assets/hero.png';
 import coffeeHarvest from '../assets/coffee-farm.png';
 import banner from '../assets/banner.jpg';

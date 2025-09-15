@@ -89,7 +89,7 @@ function Home() {
                 <img src={logoCoffee} alt="Flores Island Coffee Logo - Premium Indonesian Coffee" />
               </div>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-6xl font-bold mb-6 tracking-tight font-heading leading-tight">
+            <h1 className="text-xl md:text-4xl lg:text-4xl font-bold mb-6 tracking-tight font-heading leading-tight">
               Premium Flores Island Coffee - The richness echoes the depth of emerald hills and ocean skies
             </h1>
           </div>
@@ -97,19 +97,20 @@ function Home() {
       </section>
 
       {/* Our Values Section */}
-      <section className="p-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl lg:text-3xl font-medium tracking-wide text-flores-primary uppercase mb-3 font-body">
-              Our Coffee Values - Sustainable Indonesian Coffee Production
+      <section className="py-8 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-sm lg:text-xl font-medium tracking-wide text-flores-primary uppercase mb-2 font-body">
+              Our Coffee Values
             </h2>
-            <p className="text-3xl md:text-4xl font-semibold text-flores-primary leading-relaxed font-heading">
+            <p className="text-base md:text-2xl font-semibold text-flores-primary leading-relaxed font-heading">
               Innovation in specialty coffee farming, <br />
               rooted in the volcanic soil of Flores Island.
             </p>
           </div>
 
-          <div ref={valuesRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Value Cards */}
+          <div ref={valuesRef} className="grid grid-cols-3 gap-2 md:gap-3">
             {valuesData.map((value) => (
               <ValueCard
                 key={value.id}
@@ -198,9 +199,9 @@ function Home() {
       </section>
 
       {/* Product Showcase */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div ref={productsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-10">
+          <div ref={productsRef} className="grid grid-cols-3 gap-3 md:gap-4">
             {productsData.map((product) => (
               <ProductCard
                 key={product.id}
@@ -210,6 +211,7 @@ function Home() {
                 image={product.image}
                 backgroundImg={product.backgroundImg}
                 alt={product.alt}
+                className="h-48 md:h-56"
               />
             ))}
           </div>
@@ -231,7 +233,7 @@ function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="grid grid-cols-2">
           {specialtyData.map((specialty) => (
             <SpecialtyCard
               key={specialty.id}

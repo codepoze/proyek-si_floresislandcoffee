@@ -18,14 +18,14 @@ function About() {
       />
       <div className="bg-white">
         {/* Hero Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <section className="py-18 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             {/* Small Header */}
             <div className="text-center mb-8">
-              <p className="text-teal-600 text-2xl font-semibold tracking-wide uppercase mb-6">
+              <p className="text-teal-600 text-xl font-semibold tracking-wide uppercase mb-6">
                 OUR STORY
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-teal-800 leading-tight max-w-4xl mx-auto">
+              <h1 className="text-2xl md:text-5xl lg:text-4xl font-serif text-teal-800 leading-tight max-w-4xl mx-auto">
                 The richness of Flores coffee echoes the depth of its emerald hills and ocean skies.
               </h1>
             </div>
@@ -110,11 +110,11 @@ function About() {
         </section>
 
         {/* Mission Statement */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-5xl mx-auto p-12 bg-gradient-to-br from-blue-100/70 to-blue-200/50 rounded-lg shadow-xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-serif text-slate-700 mb-12 font-light">Mission Statement</h2>
-              <div className="space-y-6 text-xl md:text-2xl text-slate-700 leading-relaxed max-w-4xl mx-auto">
+        <section className="py-12 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+          <div className="max-w-4xl lg:max-w-5xl mx-auto p-4 lg:p-12 bg-gradient-to-br from-blue-100/70 to-blue-200/50 rounded-lg shadow-xl">
+            <div className="text-center mb-8 lg:mb-16">
+              <h2 className="text-xl lg:text-4xl xl:text-5xl font-serif text-slate-700 mb-4 lg:mb-12 font-light">Mission Statement</h2>
+              <div className="space-y-3 lg:space-y-6 text-sm lg:text-xl xl:text-2xl text-slate-700 leading-relaxed max-w-3xl lg:max-w-4xl mx-auto">
                 <p className="font-light">
                   Within 3 years achieve the aggregation of coffee production from
                   <span className="font-medium text-slate-800"> 3% of the 75,000 Flores smallholder coffee farmer households</span>, into
@@ -125,8 +125,8 @@ function About() {
             </div>
 
             {/* Four Values Icons */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mt-16">
-              <div className="text-center border-r-2 pr-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-12 mt-6 lg:mt-16">
+              <div className="text-center lg:border-r-2 lg:pr-8">
                 <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                   <img src={coffeeIcon} alt="Ethical Labour & Gender Neutral Practices" className="w-full h-full object-contain" />
                 </div>
@@ -134,7 +134,7 @@ function About() {
                 <p className="text-sm text-slate-700 font-medium">Practices</p>
               </div>
 
-              <div className="text-center border-r-2 pr-8">
+              <div className="text-center lg:border-r-2 lg:pr-8">
                 <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                   <img src={LeafIcon} alt="Deforestation Free" className="w-full h-full object-contain" />
                 </div>
@@ -142,7 +142,7 @@ function About() {
                 <p className="text-sm text-slate-700 font-medium">Free</p>
               </div>
 
-              <div className="text-center border-r-2 pr-8">
+              <div className="text-center lg:border-r-2 lg:pr-8">
                 <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                   <img src={cupIcon} alt="Biodiversity & Ecosystem Services" className="w-full h-full object-contain" />
                 </div>
@@ -217,7 +217,7 @@ function About() {
                 </div>
                 <div className="aspect-video">
                   <img
-                    src="https://images.unsplash.com/photo-1559496417-e7f25cb247cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                    src="https://www.kbvresearch.com/images/blog/coffee-machine.jpg"
                     alt="Industrial coffee brewing equipment"
                     className="w-full h-full object-cover rounded-lg"
                   />
