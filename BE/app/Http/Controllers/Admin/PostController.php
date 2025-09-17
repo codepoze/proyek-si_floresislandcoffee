@@ -75,16 +75,68 @@ class PostController extends Controller
 
     public function show($id)
     {
+        $post = Post::with(['toPostTag.toTag'])->find(my_decrypt($id));
+
         $data = [
-            'post' => Post::with(['toPostTag.toTag'])->find(my_decrypt($id)),
+            'post' => $post,
         ];
 
         return Template::load('admin', 'Post', 'post', 'show', $data);
     }
 
-    public function edit($id) {}
+    public function edit($id)
+    {
+        $post     = Post::with(['toPostTag.toTag'])->find(my_decrypt($id));
+        $category = Category::latest()->get();
+        $tag      = Tag::latest()->get();
 
-    public function update(Request $request, $id) {}
+        $id_tag = [];
+        foreach ($post->toPostTag as $item) {
+            $id_tag[] = $item->id_tag;
+        }
+
+        $data = [
+            'post'     => $post,
+            'category' => $category,
+            'tag'      => $tag,
+            'id_tag'   => $id_tag,
+        ];
+
+        return Template::load('admin', 'Post', 'post', 'edit', $data);
+    }
+
+    public function update(Request $request)
+    {
+        try {
+            $post              = Post::find($request->id_post);
+            $post->id_category = $request->id_category;
+            $post->title       = $request->title;
+            $post->content     = $request->content;
+
+            if (isset($request->change_picture) && $request->change_picture === 'on') {
+                $gambar = upd_picture($request->image, $post->image, 'post');
+
+                $post->image = $gambar;
+            }
+
+            $post->save();
+
+            $post_tag = PostTag::where('id_post', $post->id_post)->delete();
+
+            foreach ($request->id_tag as $tag) {
+                $post_tag = new PostTag();
+                $post_tag->id_post = $request->id_post;
+                $post_tag->id_tag  = $tag;
+                $post_tag->save();
+            }
+
+            $response = ['title' => 'Berhasil!', 'text' => 'Data Sukses di Simpan!', 'type' => 'success', 'button' => 'Okay!', 'class' => 'success'];
+        } catch (\Exception $e) {
+            $response = ['title' => 'Gagal!', 'text' => 'Data Gagal di Simpan!', 'type' => 'error', 'button' => 'Okay!', 'class' => 'danger'];
+        }
+
+        return Response::json($response);
+    }
 
     public function del(Request $request)
     {

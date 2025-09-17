@@ -70,5 +70,5 @@ Breadcrumbs::for('admin.post.show', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('admin.post.edit', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.post.index');
 
-    $trail->push('Ubah', route('admin.post.edit'));
+    $trail->push('Ubah', '#');
 });

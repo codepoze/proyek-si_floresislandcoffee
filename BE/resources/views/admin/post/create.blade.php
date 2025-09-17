@@ -148,8 +148,7 @@
                                 },
                                 buttonsStyling: false,
                             }).then((value) => {
-                                $('#modal-add-upd').modal('hide');
-                                table.ajax.reload();
+                                location.reload();
                             });
                         } else {
                             $.each(response.errors, function(key, value) {
