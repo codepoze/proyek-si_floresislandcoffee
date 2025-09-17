@@ -49,13 +49,8 @@
                 <div class="auth-wrapper auth-v2">
                     <div class="auth-inner row m-0">
                         <!-- begin:: left text -->
-                        <div class="d-none d-lg-flex col-lg-8 align-items-center p-5" style="background-color: #1c1c1c;">
-                            <div class="w-50 d-lg-flex align-items-center justify-content-center px-1">
-                                <img class="img-fluid" src="{{ asset_admin('images/logo/logo.png') }}" alt="Login" />
-                            </div>
-                            <h1 class="fw-bolder" style="color: white;">
-                                Selamat Datang <br /> di Sistem Informasi Antrean <br /> PT. Maccon Generasi Mandiri
-                            </h1>
+                        <div class="d-none d-lg-flex col-lg-8 p-5 justify-content-center align-items-center" style="background-color: #add5e3;">
+                            <img src="{{ asset_admin('images/logo/logo.png') }}" alt="Login" width="50%" />
                         </div>
                         <!-- end:: left text -->
 
@@ -98,7 +93,7 @@
     <script type="text/javascript" src="{{ asset_admin('vendors/js/forms/validation/jquery.validate.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset_admin('js/core/app-menu.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset_admin('js/core/app.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset_admin('my_assets/my_fun.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/my_assets/my_script.js') }}"></script>
 
     <script>
         let untukLogin = function() {
