@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #add5e3;
+}
+
 .is-invalid {
     border: 1px solid #dc3545 !important;
 }
@@ -63,7 +67,7 @@ form .select2.is-valid+.select2-container--default .select2-selection--single {
 
 /* table */
 .table thead th {
-    background-color: #f5e070 !important;
+    background-color: var(--primary-color) !important;
     border-color: #fff;
     color: white;
 }
@@ -80,7 +84,7 @@ form .select2.is-valid+.select2-container--default .select2-selection--single {
     margin-left: auto;
     border: 16px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 16px solid #f5e070;
+    border-top: 16px solid var(--primary-color);
     width: 90px;
     height: 90px;
     -webkit-animation: spin 2s linear infinite;

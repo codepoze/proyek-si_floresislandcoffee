@@ -40,7 +40,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset_admin('css/plugins/forms/form-validation.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset_admin('css/plugins/forms/pickers/form-pickadate.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset_admin('css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset_admin('my_assets/my_css.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/my_assets/my_style.css') }}">
     <!-- end:: css global -->
 
     <script src="{{ asset_admin('vendors/js/vendors.min.js') }}"></script>
@@ -92,8 +92,8 @@
     <!-- begin:: js global -->
     <script type="text/javascript" src="{{ asset_admin('js/core/app-menu.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset_admin('js/core/app.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset_admin('my_assets/my_fun.js') }}"></script>
-    <script type="text/javascript" src="{{ asset_admin('my_assets/parsley/2.9.2/parsley.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/my_assets/my_script.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/my_assets/parsley/2.9.2/parsley.js') }}"></script>
     <script type="text/javascript" src="{{ asset_admin('vendors/js/extensions/sweetalert2.all.min.js') }}"></script>
 
     <script>
