@@ -97,9 +97,9 @@ function Home() {
       </section>
 
       {/* Our Values Section */}
-      <section className="py-8 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-8">
+      <section className="py-8 bg-white mb-16">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-14">
             <h2 className="text-sm lg:text-xl font-medium tracking-wide text-flores-primary uppercase mb-2 font-body">
               Our Coffee Values
             </h2>
@@ -110,7 +110,7 @@ function Home() {
           </div>
 
           {/* Value Cards */}
-          <div ref={valuesRef} className="grid grid-cols-3 gap-2 md:gap-3">
+          <div ref={valuesRef} className="grid grid-cols-4 gap-2 md:gap-3">
             {valuesData.map((value) => (
               <ValueCard
                 key={value.id}
@@ -118,6 +118,7 @@ function Home() {
                 icon={value.icon}
                 title={value.title}
                 image={value.image}
+                backgroundImg={value.bgImage}
                 alt={value.alt}
               />
             ))}
