@@ -28,11 +28,6 @@
             <li class="navigation-header">
                 <span>Master</span><i data-feather="more-horizontal"></i>
             </li>
-            <li class="nav-item">
-                <a class="d-flex align-items-center" href="#">
-                    <i data-feather="list"></i><span class="menu-title text-truncate">Slider</span>
-                </a>
-            </li>
             <li class="nav-item {{ Route::is('admin.social_media.index') ? 'active' : '' }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.social_media.index') }}">
                     <i data-feather="list"></i><span class="menu-title text-truncate">Sosial Media</span>

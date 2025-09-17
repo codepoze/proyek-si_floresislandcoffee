@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
 
-            $table->foreign('id_post')->references('id_post')->on('posts')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('id_post')->references('id_post')->on('posts')->onDelete('cascade')->onUpdate('restrict');
             $table->foreign('id_tag')->references('id_tag')->on('tags')->onDelete('restrict')->onUpdate('restrict');
         });
     }

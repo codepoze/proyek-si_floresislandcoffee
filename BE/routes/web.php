@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SocialMediaController;
 use App\Http\Controllers\Admin\SubscriberController;
 use App\Http\Controllers\Admin\TagController;
@@ -87,8 +88,14 @@ Route::middleware('auth.session', 'prevent.back.history')->prefix('admin')->as('
     Route::controller(PostController::class)->prefix('post')->as('post.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/list', 'list')->name('list');
-        Route::post('/show', 'show')->name('show');
-        Route::post('/save', 'save')->name('save');
+        Route::get('/show/{id}', 'show')->name('show');
+
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/update', 'update')->name('update');
+        
         Route::post('/del', 'del')->name('del');
     });
     // end:: post

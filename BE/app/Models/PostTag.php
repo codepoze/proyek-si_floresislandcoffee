@@ -13,6 +13,11 @@ class PostTag extends Model
         'id_tag'
     ];
 
+    public function toTag()
+    {
+        return $this->belongsTo(Tag::class, 'id_tag');
+    }
+
     // booted
     protected static function booted()
     {

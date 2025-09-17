@@ -54,3 +54,21 @@ Breadcrumbs::for('admin.post.index', function (BreadcrumbTrail $trail) {
 
     $trail->push('Post', route('admin.post.index'));
 });
+
+Breadcrumbs::for('admin.post.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.post.index');
+
+    $trail->push('Tambah', route('admin.post.create'));
+});
+
+Breadcrumbs::for('admin.post.show', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.post.index');
+
+    $trail->push('Detail', '#');
+});
+
+Breadcrumbs::for('admin.post.edit', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.post.index');
+
+    $trail->push('Ubah', route('admin.post.edit'));
+});

@@ -16,6 +16,16 @@ class Post extends Model
         'status'
     ];
 
+    public function toCategory()
+    {
+        return $this->belongsTo(Category::class, 'id_category');
+    }
+
+    public function toPostTag()
+    {
+        return $this->hasMany(PostTag::class, 'id_post');
+    }
+
     // booted
     protected static function booted()
     {
