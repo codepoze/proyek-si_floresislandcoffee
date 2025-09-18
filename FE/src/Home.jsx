@@ -97,7 +97,7 @@ function Home() {
       </section>
 
       {/* Our Values Section */}
-      <section className="py-8 bg-white mb-16">
+      <section className="py-14 bg-white mb-16">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-14">
             <h2 className="text-sm lg:text-xl font-medium tracking-wide text-flores-primary uppercase mb-2 font-body">
